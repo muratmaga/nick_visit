@@ -9,3 +9,20 @@ curl https://jetstream2.exosphere.app/exosphere/assets/scripts/mount_ceph.py | s
   --share-name="AntsThings"
 ```
 Will showup as **/media/share/AntsThings/** in your file browser. Remember when you drag and drop files to the browser window (or use SFTP to transfer) they are saved to **/media/volume/MyData/**, which is your personal storage. if you want to share them with other, copy them to the appropriate place in AntsThings share.
+
+## setting the antspynet python environment
+```
+cd /media/volume/MyData
+python3 -m venv tf
+source tf/bin/activate
+python3 -m pip install 'tensorflow[and-cuda]'
+# test tf. Should see GPU:0
+python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+git clone https://github.com/ANTsX/ANTsPyNet
+cd ANTsPyNet
+nano requirements.txt
+# scroll down to find the tensorflow line and comment out, then save.
+python3 -m pip install .
+```
+you should be set. 
+
