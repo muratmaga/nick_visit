@@ -26,3 +26,7 @@ python3 -m pip install .
 ```
 you should be set. 
 
+## launching R
+from the terminal window:
+```module load rstudio```
+and then either `R` or `rstudio`
