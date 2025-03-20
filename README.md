@@ -26,6 +26,9 @@ python3 -m pip install .
 ```
 you should be set. 
 
+This recipe works on the lab server as well. The only difference you may need to do is to run the `python3 -m pip install 'tensorflow[and-cuda]'` command last (i.e., let ANTsPyNet install an older version of the tf, and then overwrite that with the newest version. It should 2.19)
+
+
 ## launching R
 from the terminal window:
 ```module load rstudio```
