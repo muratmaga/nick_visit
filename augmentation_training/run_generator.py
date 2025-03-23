@@ -10,7 +10,7 @@ import numpy as np
 
 from batch_generator import batch_generator
 
-base_directory = '/home/ntustison/Data/Mouse/MuratMaga/'
+base_directory = '/media/share/AntsThings/test_batch/'
 
 ################################################
 #
@@ -20,14 +20,14 @@ base_directory = '/home/ntustison/Data/Mouse/MuratMaga/'
 
 print("Loading brain data.")
 
-template_file = base_directory + "image.nii.gz"
-labels_file = base_directory + "labels_reduced.nii.gz"
+template_file = base_directory + "maskedtemplate0-36um.nii.gz"
+labels_file = base_directory + "labatlas-simple-label-36um.nii.gz"
 
 template = ants.image_read(template_file)
 labels = ants.image_read(labels_file)
 
-new_spacing = (0.05, 0.05, 0.05)
-new_shape = (256, 256, 256)
+new_spacing = (0.06, 0.06, 0.06)
+new_shape = (192, 256, 192)
 
 template = ants.resample_image(template, new_spacing, use_voxels=False, interp_type=4)
 labels = ants.resample_image(labels, new_spacing, use_voxels=False, interp_type=1)
@@ -43,7 +43,7 @@ template = ants.iMath_normalize(template)
 # Set up the training generator
 #
 
-batch_size = 2
+batch_size = 10
 
 ants.image_write(template, "template.nii.gz")
 ants.image_write(labels, "labels.nii.gz")

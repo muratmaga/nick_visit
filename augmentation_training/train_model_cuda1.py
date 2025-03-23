@@ -117,13 +117,13 @@ generator = batch_generator(batch_size=batch_size,
                     images=[template],
                     labels=[labels],
                     unique_labels=unique_labels,
-                    do_histogram_intensity_warping=True,
-                    do_simulate_bias_field=True,
-                    do_add_noise=True,
+                    do_histogram_intensity_warping=False,
+                    do_simulate_bias_field=False,
+                    do_add_noise=False,
                     do_random_transformation=True,
                     resample_direction=None)
 
-track = unet_model.fit(x=generator, epochs=200, verbose=1, steps_per_epoch=32,
+track = unet_model.fit(x=generator, epochs=100, verbose=1, steps_per_epoch=32,
     callbacks=[
        keras.callbacks.ModelCheckpoint(weights_filename, monitor='loss',
            save_best_only=True, save_weights_only=True, mode='auto', verbose=1),

@@ -12,6 +12,8 @@ verbose = True
 
 base_directory = '/media/share/AntsThings/test_batch/'
 template_file = base_directory + "maskedtemplate0-36um.nii.gz"
+#template_file = base_directory + "batchX_9.nii.gz"
+
 template = ants.image_read(template_file)
 
 new_spacing = (0.06, 0.06, 0.06)
@@ -24,8 +26,8 @@ template[template == 0] = 0.1276
 
 image = ants.image_clone(template)
 
-# weights_file = "weights/initial.weights.h5"
-weights_file = "murat.weights.h5"
+weights_file = "weights/initial.weights.h5"
+# weights_file = "murat.weights.h5"
 
 if verbose:
     print("Create model and load weights.")
