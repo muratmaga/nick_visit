@@ -11,9 +11,11 @@ os.environ["ITK_DEFAULT_GLOBAL_NUMBER_OF_THREADS"] = "4"
 verbose = True
 
 base_directory = '/media/share/AntsThings/test_batch/'
-template_file = base_directory + "maskedtemplate0-36um.nii.gz"
-#template_file = base_directory + "batchX_9.nii.gz"
 
+#template_file = base_directory + "maskedtemplate0-36um.nii.gz"
+#template_file = "/media/share/AntsThings/test_batch/maskedtemplate0-36um.nii.gz"
+#template_file = "/media/share/AntsThings/nick_visit/Volumes/Scan_0082__rec-36um.nrrd"
+template_file = "/tmp/scan00286_rigid.nii.gz"
 template = ants.image_read(template_file)
 
 new_spacing = (0.06, 0.06, 0.06)

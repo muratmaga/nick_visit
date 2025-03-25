@@ -102,7 +102,7 @@ if os.path.exists(weights_filename):
     unet_model.load_weights(weights_filename)
     
 unet_model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=2e-4),
-                    loss=dice_loss,
+                    loss=multilabel_combined_loss(0.75),
                     metrics=[dice_loss])
 
 ###

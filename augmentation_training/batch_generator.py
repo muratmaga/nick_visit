@@ -36,7 +36,8 @@ def batch_generator(batch_size=32,
         batch_count = 0
 
         while batch_count < batch_size:
-            i = 0
+            #i = 0
+            i = random.sample(list(range(len(images))), 1)[0]
 
             image = images[i]
             label = labels[i]
